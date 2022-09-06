@@ -1,0 +1,35 @@
+## to add to the project or images , css , js
+
+You need to add them to the static files in your application?
+
+create folder static in your application
+inside it create subfolder with same name of the application name
+inside create subfolder js , images , css
+
+You must restart the server Now
+
+-----------------------
+template inheritance
+-------------------------------------
+
+task ---> website  ((Personal Blog))
+
+4 pages
+
+    home ---> any content
+    contactus --->
+    aboutus --->
+    profile/name  ===> Welcome to itiblog {name}
+
+
+
+
+
+
+
+
+
+
+
+
+
