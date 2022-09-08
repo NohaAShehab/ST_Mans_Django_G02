@@ -1,0 +1,11 @@
+1- edit product
+
+2- track edit , create datatime
+
+3- upload image ---
+    --> You need to create folder in your project media ((you will upload the image here ))
+
+    -- add media path to the settings.py
+
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_URL = '/media/'

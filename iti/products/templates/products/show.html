@@ -1,0 +1,18 @@
+{% extends 'amazon/base.html'%}
+{% load static %}
+{% block title %} Product Info {% endblock %}
+
+{% block content %}
+     <div class="card" style="width: 18rem;">
+        <img src="{% static 'amazon/images/'|add:product.image %}"
+             class="card-img-top" width="200" height="200"  alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-title">Price {{product.price}}</p>
+        <p class="card-title">Description {{product.description}}</p>
+        <p class="card-title">Created_at {{product.created_at}}</p>
+        <p class="card-title">Updated_At {{product.updated_at}}</p>
+
+        <a href="{% url 'products_index' %}" class="btn btn-primary">Back to all products</a>
+      </div>
+{% endblock %}

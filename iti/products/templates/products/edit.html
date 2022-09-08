@@ -1,0 +1,30 @@
+{% extends 'amazon/base.html'%}
+{% load static %}
+{% block title %} Create New product  {% endblock %}
+{% block content %}
+
+    <h1>Edit Product </h1>
+{{product}}
+<form class="form-row"  method="POST" action="">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label  class="form-label">Name </label>
+    <input type="text"  value="{{product.name}}" name='name' class="form-control">
+  </div>
+    <div class="mb-3">
+    <label  class="form-label">Description </label>
+    <input type="text"   value="{{product.description}}" name='description' class="form-control">
+  </div>
+    <div class="mb-3">
+    <label  class="form-label">Price </label>
+    <input type="number"   value="{{product.price}}" name='price' class="form-control">
+  </div>
+    <div class="mb-3">
+    <label  class="form-label">Image </label>
+    <input type="text"  value="{{product.image}}" name="image" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

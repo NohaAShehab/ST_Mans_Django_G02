@@ -1,0 +1,27 @@
+{% extends 'amazon/base.html'%}
+{%load static%}
+{% block content %}
+  <h1> All products from the database </h1>
+    <a href="{% url 'products_create'%}"  class="btn btn-success"> Create New Product </a>
+<!--  {{products}}-->
+    <div>
+      {% for product in products %}
+      <div style="display: inline-block; vertical-align: middle; width: calc(100%/3.1)">
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'amazon/images/'|add:product.image %}"
+             class="card-img-top" width="200" height="200"  alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <a href="{% url 'products_show' product.id%}" class="btn btn-primary">show</a>
+        <a href="{% url 'products_edit' product.id%}" class="btn btn-warning">Edit</a>
+
+        <a href="{% url 'products_delete' product.id%}" class="btn btn-danger">Delete</a>
+
+      </div>
+
+
+</div>
+      </div>
+      {%endfor%}
+    </div>
+{% endblock %}
