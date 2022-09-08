@@ -3,16 +3,34 @@
 {% block title %} Product Info {% endblock %}
 
 {% block content %}
-     <div class="card" style="width: 18rem;">
-        <img src="{% static 'amazon/images/'|add:product.image %}"
+<h1> Product details </h1>
+<!--{{product.image}}-->
+<div style="margin: auto">
+     <div class="card" style="width: 25rem;">
+         <img src="{{product.get_image_url}}"
              class="card-img-top" width="200" height="200"  alt="...">
         <div class="card-body">
         <h5 class="card-title">{{product.name}}</h5>
         <p class="card-title">Price {{product.price}}</p>
         <p class="card-title">Description {{product.description}}</p>
+
+        <p class="card-title">Categroy: <a href="{{product.category.get_show_url}}"> {{product.category.cat_name}} </a></p>
+<!--        <p class="card-title">Categroy: {{product.category}}</p>-->
+
         <p class="card-title">Created_at {{product.created_at}}</p>
         <p class="card-title">Updated_At {{product.updated_at}}</p>
-
         <a href="{% url 'products_index' %}" class="btn btn-primary">Back to all products</a>
       </div>
+ </div>
+
+    <div>
+        <h1> See also products in this category </h1>
+<!--        {{product.category.cat_products.all}}-->
+        {% for p in product.category.cat_products.all%}
+            {%if p.id != product.id %}
+                <li> <a href="{{p.get_show_url}}"> {{p.name}} </a></li>
+            {%endif%}
+        {% endfor%}
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'amazon/base.html'%}
+{% load static %}
+{% block title %} Product Info {% endblock %}
+
+{% block content %}
+<h1> Category details </h1>
+
+     <div class="card" style="width: 18rem;">
+         <img src="{{category.get_image_url}}"
+             class="card-img-top" width="200" height="200"  alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{category.cat_name}}</h5>
+        <p class="card-title">Created_at {{category.created_at}}</p>
+        <p class="card-title">Updated_At {{category.updated_at}}</p>
+
+        <a href="{% url 'categories_index' %}" class="btn btn-primary">Back to all Categories</a>
+      </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'amazon/base.html'%}
+{%load static%}
+{% block content %}
+  <h1> All Categories  </h1>
+    <a href="{% url 'categories_create' %}"  class="btn btn-success"> Create New Category </a>
+    <div>
+      {% for cat in categories %}
+      <div style="display: inline-block; vertical-align: middle; width: calc(100%/3.1)">
+      <div class="card" style="width: 18rem;">
+          <img src="{{cat.get_image_url}}"
+             class="card-img-top" width="200" height="200"  alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{cat.cat_name}}</h5>
+        <a href="{{cat.get_show_url}}" class="btn btn-primary">show</a>
+        <a href="{{cat.get_edit_url}}" class="btn btn-warning">Edit</a>
+        <a href="{{cat.get_delete_url}}" class="btn btn-danger">Delete</a>
+
+
+
+      </div>
+
+
+</div>
+      </div>
+      {%endfor%}
+    </div>
+{% endblock %}

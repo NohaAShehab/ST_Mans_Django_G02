@@ -9,3 +9,45 @@
 
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
     MEDIA_URL = '/media/'
+
+3- add imagefield column to the model
+
+4- install pillow package ---> upload the image
+python -m pip install Pillow
+
+5- go to the urls.py file in the project
+--------------------------------
+
+I need to allow the application to upload image
+    1- goto create.html ---> add  enctype="multipart/form-data"
+    to allow uploading the file from the client to the server
+
+
+_______________________________
+relations --> between the models
+
+
+--> each product must be related to one category
+
+---> one to many relationship
+in Product model
+    category = models.ForeignKey(Category, null=True, on_delete=models.CASCADE) # create column cat_id, reference table categories(id)
+
+
+
+----> to get the products in the same catogory
+backword relation
+
+
+product.category_set.all
+
+------------ CRUD OPERATIONS
+
+POST ---> creator
+upload image to the post
+--> list related posts created by the same creator
+
+
+
+
+

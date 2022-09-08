@@ -4,7 +4,7 @@
 {% block content %}
 
     <h1> Add new Product </h1>
-<form class="form-row"  method="POST" action="">
+<form class="form-row"  method="POST" action="" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="mb-3">
     <label  class="form-label">Name </label>
@@ -20,7 +20,16 @@
   </div>
     <div class="mb-3">
     <label  class="form-label">Image </label>
-    <input type="text" name="image" class="form-control">
+    <input type="file" name="image" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label  class="form-label">Category </label>
+    <select class="form-select" aria-label="Default select example" name="category_id">
+      {% for cat in categories %}
+          <option value="{{cat.id}}">{{cat.cat_name}}</option>
+      {% endfor %}
+    </select>
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>

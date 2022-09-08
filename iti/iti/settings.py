@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products.apps.ProductsConfig',
     'amazon.apps.AmazonConfig',  # configuration class of the new created application
-
+    'categories.apps.CategoriesConfig',
 ]
 
 MIDDLEWARE = [
